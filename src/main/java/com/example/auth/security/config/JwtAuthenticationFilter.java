@@ -23,7 +23,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
-    private final String SECRET_TOKEN = "MUJHEKYA";
 
     @Override
     protected void doFilterInternal(
