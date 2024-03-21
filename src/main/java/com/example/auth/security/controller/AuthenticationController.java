@@ -17,14 +17,14 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody RegisterRequest request
+            @RequestBody SignUpForm request
     ) {
         return  ResponseEntity.ok(authenticationService.register(request));
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AuthenticationRequest request
+            @RequestBody LoginRequest request
     ) {
         return  ResponseEntity.ok(authenticationService.authenticate(request));
     }

@@ -1,9 +1,9 @@
 package com.example.auth.security.service;
 
 import com.example.auth.security.config.JwtService;
-import com.example.auth.security.controller.AuthenticationRequest;
 import com.example.auth.security.controller.AuthenticationResponse;
-import com.example.auth.security.controller.RegisterRequest;
+import com.example.auth.security.controller.LoginRequest;
+import com.example.auth.security.controller.SignUpForm;
 import com.example.auth.security.model.Role;
 import com.example.auth.security.model.User;
 import com.example.auth.security.repository.UserRepository;
@@ -25,7 +25,7 @@ public class AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public AuthenticationResponse register(SignUpForm request) {
         var user = User.builder()
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())
@@ -40,7 +40,7 @@ public class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponse authenticate(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
